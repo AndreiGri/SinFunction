@@ -4,12 +4,13 @@
 
 using namespace std;
 
-int Factorial(int n) {
+int Factorial(int i) {
     int summ = 1;
-    while (n) {
-        summ *= n;
-        n--;
+    while (i) {
+        summ *= i;
+        i--;
     }
+    cout << summ << endl;
     return summ;
 }
 
@@ -20,14 +21,19 @@ int main()
     double x;
     cout << "Введите значение x для функции sin(x) ";
     cin >> x;
-    double s = x;
+    double s = 0;
     cout << "Введите точность для функции sin(x) ";
     cin >> n;
-    for (int i = 3;i <= n;) {
-        s -= pow(x, i) / Factorial(i);
-        i += 2;
-        s += pow(x, i) / Factorial(i);
-        i += 2;
+    for (;k <= n;) {
+        if (n % 2 != 0) {
+            s += pow(x, k) / Factorial(k);
+            k += 2;
+            s -= pow(x, k) / Factorial(k);
+            k += 2;
+        }
+        else {
+            n--;
+        }
     }
     cout << "sin(x) при значении x = " << x << " равен " << s << endl;
     cout << "Проверка " << sin(x) << endl;
